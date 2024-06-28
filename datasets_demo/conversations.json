@@ -1,0 +1,24 @@
+[
+    {
+        "id": "0",
+        "image": "/home/zhangwei/MiniCPM-V/datasets_demo/3d_cluster_1.png",
+        "conversations": [
+            {
+                "role": "user",
+                "content": "<image>\nHow many clusters are in the box?"
+            },
+            {
+                "role": "assistant",
+                "content": "There are three clusters in the box."
+            },
+            {
+                "role": "user",
+                "content": "What color of clusters are they?"
+            },
+            {
+                "role": "assistant",
+                "content": "The clusters are green, blue, and pink."
+            }
+        ]
+    }
+]

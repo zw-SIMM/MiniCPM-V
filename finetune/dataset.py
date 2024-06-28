@@ -38,12 +38,16 @@ class SupervisedDataset(Dataset):
         self.patch_size = patch_size
         self.query_nums=query_nums
         self.batch_vision = batch_vision
+        self.image_dir = "/home/zhangwei/MiniCPM-V/datasets/LLaVA-CC3M-Pretrain-595K/images_dl/"
 
     def __len__(self):
         return len(self.raw_data)
 
     def __getitem__(self, i) -> Dict[str, torch.Tensor]:
-        image = Image.open(self.raw_data[i]["image"]).convert("RGB")
+        image_path = self.image_dir + self.raw_data[i]["image"]
+        image = Image.open(image_path).convert("RGB")
+
+        # image = Image.open(self.raw_data[i]["image"]).convert("RGB")
         ret = preprocess(
             image,
             self.raw_data[i]["conversations"],

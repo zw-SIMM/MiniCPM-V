@@ -518,6 +518,14 @@ conda activate MiniCPMV
 pip install -r requirements.txt
 ```
 
+4. 下载预训练权重
+
+```python
+# pip install modelscope
+from modelscope import snapshot_download
+model_dir = snapshot_download("OpenBMB/MiniCPM-Llama3-V-2_5", revision='master', cache_dir='/home/zhangwei/pretrained_models')
+```
+
 ## 推理
 
 ### 模型库

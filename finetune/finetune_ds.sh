@@ -1,16 +1,16 @@
 #!/bin/bash
 
-GPUS_PER_NODE=8
+GPUS_PER_NODE=4
 NNODES=1
 NODE_RANK=0
 MASTER_ADDR=localhost
 MASTER_PORT=6001
 
-MODEL="openbmb/MiniCPM-Llama3-V-2_5" # or openbmb/MiniCPM-V-2
+MODEL="/home/zhangwei/pretrained_models/OpenBMB/MiniCPM-Llama3-V-2_5" # or openbmb/MiniCPM-V-2
 # ATTENTION: specify the path to your training data, which should be a json file consisting of a list of conversations.
 # See the section for finetuning in README for more information.
-DATA="path/to/trainging_data"
-EVAL_DATA="path/to/test_data"
+DATA="/home/zhangwei/MiniCPM-V/datasets/LLaVA-CC3M-Pretrain-595K/updated_chat_10k.json"
+EVAL_DATA="/home/zhangwei/MiniCPM-V/datasets/LLaVA-CC3M-Pretrain-595K/updated_chat_1k.json"
 LLM_TYPE="llama3" # if use openbmb/MiniCPM-V-2, please set LLM_TYPE=minicpm
 
 DISTRIBUTED_ARGS="
@@ -55,7 +55,7 @@ torchrun $DISTRIBUTED_ARGS finetune.py  \
     --adam_beta2 0.95 \
     --warmup_ratio 0.01 \
     --lr_scheduler_type "cosine" \
-    --logging_steps 1 \
+    --logging_steps 10 \
     --gradient_checkpointing true \
     --deepspeed ds_config_zero2.json \
     --report_to "tensorboard" 

@@ -18,13 +18,13 @@ from transformers import AutoModel, AutoTokenizer
 
 # Argparser
 parser = argparse.ArgumentParser(description='demo')
-parser.add_argument('--device', type=str, default='cuda', help='cuda or mps')
+parser.add_argument('--device', type=str, default='cuda:7', help='cuda or mps')
 args = parser.parse_args()
 device = args.device
-assert device in ['cuda', 'mps']
+# assert device in ['cuda', 'mps']
 
 # Load model
-model_path = 'openbmb/MiniCPM-Llama3-V-2_5'
+model_path = '/home/zhangwei/pretrained_models/OpenBMB/MiniCPM-Llama3-V-2_5'
 if 'int4' in model_path:
     if device == 'mps':
         print('Error: running int4 model with bitsandbytes on Mac is not supported right now.')
