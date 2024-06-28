@@ -25,6 +25,7 @@ device = args.device
 
 # Load model
 model_path = '/home/zhangwei/pretrained_models/OpenBMB/MiniCPM-Llama3-V-2_5'
+model_path = "/home/zhangwei/MiniCPM-V/finetune/output/output_minicpmv2/checkpoint-10000"
 if 'int4' in model_path:
     if device == 'mps':
         print('Error: running int4 model with bitsandbytes on Mac is not supported right now.')

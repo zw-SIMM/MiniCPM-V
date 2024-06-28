@@ -526,6 +526,13 @@ from modelscope import snapshot_download
 model_dir = snapshot_download("OpenBMB/MiniCPM-Llama3-V-2_5", revision='master', cache_dir='/home/zhangwei/pretrained_models')
 ```
 
+5. vscode安装jupyter内核
+```bash
+pip install -U ipykernel
+mamba activate MiniCPM
+python -m ipykernel install --user --name "MiniCPM" --display-name "MiniCPM"
+```
+
 ## 推理
 
 ### 模型库
